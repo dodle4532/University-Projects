@@ -1,2 +1,2 @@
-# University-Projects
-There is all my projects from studying at University
+# Study-Tasks
+Here is simple but interesting mini tasks
