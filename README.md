@@ -1,2 +1,2 @@
 # University-Projects
-There is all my projects from studying at University
+There is other projects, which is no coding one
