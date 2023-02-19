@@ -48,6 +48,11 @@ class Student {
 
 
     public:
+        Student(uint age, uint workdayCost, uint weekandCost, uint cost,
+                std::string city, std::string homeAddress, std::string institute,
+                std::string coffee, std::string cinema);
+        Student();
+
         void setWorkdayCost(DatabaseHandler &a);
         void setWeekandCost(DatabaseHandler &a);
         void setCost(uint month, DatabaseHandler a);
@@ -56,12 +61,12 @@ class Student {
         uint getWeekandCost();
         uint getCost();
         
-        void setAge(const int _age);
-        void setCity(const std::string& _city);
-        void setHomeAdress(const std::string& _homeAdress);
-        void setInstitute(const std::string& _institute);
-        void setCoffee(const std::string& _coffee);
-        void setCinema(const std::string& _cinema);
+        void setAge(const int age);
+        void setCity(const std::string& city);
+        void setHomeAdress(const std::string& homeAdress);
+        void setInstitute(const std::string& institute);
+        void setCoffee(const std::string& coffee);
+        void setCinema(const std::string& cinema);
 
         uint getAge();
         std::string getCity();

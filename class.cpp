@@ -292,6 +292,32 @@ uint DatabaseHandler::getTransportCost() {
 
 
 
+Student::Student(uint age, uint workdayCost, uint weekandCost, uint cost,
+                std::string city, std::string homeAddress, std::string institute,
+                std::string coffee, std::string cinema) {
+    this->age = age;
+    this->workdayCost = workdayCost;
+    this->weekandCost = weekandCost;
+    this->cost = cost;
+    this->city = city;
+    this->homeAddress = homeAddress;
+    this->institute = institute;
+    this->coffee = coffee;
+    this->cinema = cinema;
+}
+        
+Student::Student() {
+    age = 0;
+    workdayCost = 0;
+    weekandCost = 0;
+    cost = 0;
+    city = "";
+    homeAddress = "";
+    institute = "";
+    coffee = "";
+    cinema = "";
+}
+
 void Student::setWorkdayCost(DatabaseHandler &a) {
    /* По рабочим дням расходы складываются из стоимости:
     - дороги до института и обратно 
@@ -340,28 +366,28 @@ uint Student::getCost() {
     return cost;
 }
 
-void Student::setAge(const int _age) {
-    age = _age;
+void Student::setAge(const int age) {
+    this->age = age;
 }
 
-void Student::setCity(const std::string& _city) {
-    city = _city;
+void Student::setCity(const std::string& city) {
+    this->city = city;
 }
 
-void Student::setHomeAdress(const std::string& _homeAdress) {
-    homeAddress = _homeAdress;
+void Student::setHomeAdress(const std::string& homeAdress) {
+    this->homeAddress = homeAdress;
 }
 
-void Student::setInstitute(const std::string& _institute) {
-    institute = _institute;
+void Student::setInstitute(const std::string& institute) {
+    this->institute = institute;
 }
 
-void Student::setCoffee(const std::string& _coffee) {
-    coffee = _coffee;
+void Student::setCoffee(const std::string& coffee) {
+    this->coffee = coffee;
 }
 
-void Student::setCinema(const std::string& _cinema) {
-    cinema = _cinema;
+void Student::setCinema(const std::string& cinema) {
+    this->cinema = cinema;
 }   
 
 uint Student::getAge() {

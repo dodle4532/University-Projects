@@ -104,6 +104,10 @@ int main() {
 
     uint res = student.getCost();
 
+    if (res == 0) {
+        std::cout << "WOW, student is living for FREE for entire month" << std::endl;
+    }
+
     std::cout << "Expenses in a this month: " << res << std::endl;
 
     return 0;  
