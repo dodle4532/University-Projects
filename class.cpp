@@ -413,3 +413,51 @@ std::string Student::getCoffee() {
 std::string Student::getCinema() {
     return cinema;
 }
+
+void Student::setCinema() {
+    // Аналогично getInstitute
+    std::string cinema;
+    std::cout << "What cinema is it?" << std::endl;
+    std::cin >> cinema;
+    this->cinema = cinema;
+}
+
+void Student::setCoffee() {
+    // Аналогично getInstitute
+    std::string coffee;
+    std::cout << "What coffee is it?" << std::endl;
+    std::cin >> coffee;
+    this->coffee = coffee;
+}
+
+void Student::setInstitute() {
+    // Ввод названия института
+    std::string institute;
+    std::cout << "What insitute is it?" << std::endl;
+    std::cin >> institute;
+    this->institute = institute;
+}
+
+void Student::setHomeAdress() {
+    // Запрашиваем ввод адреса
+    std::string homeAdress;
+    std::cout << "What adress is it?" << std::endl;
+    std::cin >> homeAdress;
+    this->homeAddress = homeAdress;
+}
+
+void Student::setAge() {
+    // Запрашиваем ввод возраста
+    uint age;
+    std::cout << "What age is it?" << std::endl;
+    std::cin >> age;
+    this->age = age;
+}
+
+void Student::setCity() {
+    // Запрашиваем ввод города
+    std::string city;
+    std::cout << "What city is it?" << std::endl;
+    std::cin >> city;
+    this->city = city;
+}

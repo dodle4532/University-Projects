@@ -68,10 +68,18 @@ class Student {
         void setCoffee(const std::string& coffee);
         void setCinema(const std::string& cinema);
 
+        void setCinema();
+        void setCoffee();
+        void setInstitute();
+        void setHomeAdress();
+        void setAge();
+        void setCity();
+
         uint getAge();
         std::string getCity();
         std::string getHomeAdress();
         std::string getInstitute();
         std::string getCoffee();
         std::string getCinema();
+        
 };
