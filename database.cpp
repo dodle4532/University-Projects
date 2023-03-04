@@ -2,6 +2,7 @@
 #include <string>
 #include <fstream>
 #include <sstream>
+#include <cstdlib>
 #include "student.h"
 #include "database.h"
 
@@ -12,8 +13,8 @@ const std::string DatabaseHandler::caffeAndCinemaFileName = "Caffe-and-cinema.cs
 const std::string DatabaseHandler::instituteFileName = "Institute.csv";
 const std::string DatabaseHandler::transportFileName = "Transport.csv";
 
-int DatabaseHandler::getOtherMontlyCosts(const uint& month, const std::string& city,
-                                 const uint& age)
+uint DatabaseHandler::getOtherMontlyCosts(const uint month, const std::string& city,
+                                 const uint age)
 {
     /* Получаем из базы данных средние по региону затраты в данном месяце 
      для людей данного возраста
@@ -29,11 +30,13 @@ int DatabaseHandler::getOtherMontlyCosts(const uint& month, const std::string& c
     std::stringstream strStream;
     fd.open(costsFileName, std::fstream::in);
     if (!(fd.is_open())) {
-        return -1;
+        std::cout << "ERROR" << std::endl;
+        std::exit(0);
     } 
     while (1) {
         if(fd.eof()) {
-            return -1;
+            std::cout << "Not found otherMothlyCost in DATABASE" << std::endl;
+            std::exit(0);
         }
         std::getline(fd, str);
         strStream.clear();
@@ -57,7 +60,7 @@ int DatabaseHandler::getOtherMontlyCosts(const uint& month, const std::string& c
 
 }
 
-int DatabaseHandler::getHomeFoodCost(const std::string& city) {
+uint DatabaseHandler::getHomeFoodCost(const std::string& city) {
     // Получаем из базы данных средние по региону затраты на еду
     // что такое средние по региону
     std::fstream fd;
@@ -67,11 +70,13 @@ int DatabaseHandler::getHomeFoodCost(const std::string& city) {
     std::stringstream strStream(str);
     fd.open(costsFileName,std::fstream::in);
     if (!(fd.is_open())){
-        return -1;
+        std::cout << "ERROR" << std::endl;
+        std::exit(0);
     } 
     while (1) {
         if(fd.eof()) {
-            return -1;
+            std::cout << "Not found homeFoodCost in DATABASE" << std::endl;
+            std::exit(0);
         }
         std::getline(fd, str);
         strStream.clear();
@@ -87,7 +92,7 @@ int DatabaseHandler::getHomeFoodCost(const std::string& city) {
     return res;
 }
 
-int DatabaseHandler::getCinemaCost(const std::string& city, const std::string& cinema) {
+uint DatabaseHandler::getCinemaCost(const std::string& city, const std::string& cinema) {
     // Получаем из базы данных стоимость билета на вечерний сеанс в данном кинотетре
     std::fstream fd;
     std::string str;
@@ -97,11 +102,13 @@ int DatabaseHandler::getCinemaCost(const std::string& city, const std::string& c
     std::stringstream strStream(str);
     fd.open(caffeAndCinemaFileName,std::fstream::in);
     if (!(fd.is_open())) {
-        return -1;
+        std::cout << "ERROR" << std::endl;
+        std::exit(0);
     } 
     while (1) {
         if(fd.eof()) {
-            return -1;
+            std::cout << "Not found cinemaCost in DATABASE" << std::endl;
+            std::exit(0);
         }
         std::getline(fd, str);
         
@@ -123,7 +130,7 @@ int DatabaseHandler::getCinemaCost(const std::string& city, const std::string& c
     return res;
 }
 
-int DatabaseHandler::getCoffeCost(const std::string& city, const std::string& coffe) {
+uint DatabaseHandler::getCoffeCost(const std::string& city, const std::string& coffe) {
     // Получаем из базы данных средний чек в данном баре
     std::fstream fd;
     std::string str;
@@ -133,11 +140,13 @@ int DatabaseHandler::getCoffeCost(const std::string& city, const std::string& co
     std::stringstream strStream(str);
     fd.open(caffeAndCinemaFileName,std::fstream::in);
     if (!(fd.is_open())) {
-        return -1;
+        std::cout << "ERROR" << std::endl;
+        std::exit(0);
     } 
     while (1) {
         if(fd.eof()) {
-            return -1;
+            std::cout << "Not found coffeCost in DATABASE" << std::endl;
+            std::exit(0);
         }
         std::getline(fd, str);
         strStream.clear();
@@ -156,7 +165,7 @@ int DatabaseHandler::getCoffeCost(const std::string& city, const std::string& co
     return res;
 }
 
-int DatabaseHandler::getInstituteDinnerCost(const std::string& city, const std::string& institute) {
+uint DatabaseHandler::getInstituteDinnerCost(const std::string& city, const std::string& institute) {
     // Получаем из базы данных среднюю стоимость обеда в столовой данного института
     std::fstream fd;
     std::string str;
@@ -166,11 +175,13 @@ int DatabaseHandler::getInstituteDinnerCost(const std::string& city, const std::
     std::stringstream strStream(str);
     fd.open(instituteFileName,std::fstream::in);
     if (!(fd.is_open())) {
-        return -1;
+        std::cout << "ERROR" << std::endl;
+        std::exit(0);
     } 
     while (1) {
         if(fd.eof()) {
-            return -1;
+            std::cout << "Not found instituteDinnerCost in DATABASE" << std::endl;
+            std::exit(0);
         }
         std::getline(fd, str);
         strStream.clear();
@@ -188,7 +199,7 @@ int DatabaseHandler::getInstituteDinnerCost(const std::string& city, const std::
     return res;
 }
 
-int DatabaseHandler::getTransportCost(const std::string& city, const std::string& homeAddress,
+uint DatabaseHandler::getTransportCost(const std::string& city, const std::string& homeAddress,
                                        const std::string& institute) {
     // Получаем из базы данных стоимость кратчайшей дороги до инстиутта
     std::fstream fd;
@@ -200,11 +211,13 @@ int DatabaseHandler::getTransportCost(const std::string& city, const std::string
     std::stringstream strStream(str);
     fd.open(transportFileName,std::fstream::in);
     if (!(fd.is_open())) {
-        return -1;
+        std::cout << "ERROR" << std::endl;
+        std::exit(0);
     } 
     while (1) {
         if(fd.eof()) {
-            return -1;
+            std::cout << "Not found transportCost in DATABASE" << std::endl;
+            std::exit(0);
         }
         std::getline(fd, str);
         strStream.clear();

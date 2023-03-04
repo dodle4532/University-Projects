@@ -28,6 +28,7 @@ uint getMonth() {
     return month;
 }
 
+
 int main() {
     DatabaseHandler database;
     Student student;  
@@ -49,7 +50,7 @@ int main() {
     const uint instituteDinnerCost = database.getInstituteDinnerCost(city, institute);
     const uint homeFoodCost = database.getHomeFoodCost(city);
     const uint cinemaCost = database.getCinemaCost(city, cinema);
-    const uint coffeCost = database.getCoffeCost(cinema, coffe);
+    const uint coffeCost = database.getCoffeCost(city, coffe);
     const uint otherMonthlyCost = database.getOtherMontlyCosts(month, city, age);
     const uint workdayCost = student.getWorkdayCost(transportCost, instituteDinnerCost, homeFoodCost);
     const uint weekandCost = student.getWeekandCost(homeFoodCost, cinemaCost, coffeCost);

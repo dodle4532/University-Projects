@@ -13,14 +13,14 @@ class DatabaseHandler {
         static const std::string transportFileName;
 
     public:
-        int getOtherMontlyCosts(const uint& month, const std::string& city,
-                                 const uint& age);
-        int getHomeFoodCost(const std::string& city);
-        int getCinemaCost(const std::string& city, const std::string& cinema);
-        int getCoffeCost(const std::string& city, const std::string& coffe);
-        int getWeekandCost(const std::string& city, const std::string& institute);
-        int getInstituteDinnerCost(const std::string& city, const std::string& institute);
-        int getTransportCost(const std::string& city, const std::string& homeAddress,
+        uint getOtherMontlyCosts(const uint month, const std::string& city,
+                                 const uint age);
+        uint getHomeFoodCost(const std::string& city);
+        uint getCinemaCost(const std::string& city, const std::string& cinema);
+        uint getCoffeCost(const std::string& city, const std::string& coffe);
+        uint getWeekandCost(const std::string& city, const std::string& institute);
+        uint getInstituteDinnerCost(const std::string& city, const std::string& institute);
+        uint getTransportCost(const std::string& city, const std::string& homeAddress,
                               const std::string& institute);
         
 };
