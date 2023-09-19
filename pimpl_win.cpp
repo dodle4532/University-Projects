@@ -11,6 +11,7 @@ Pimpl_Win::Pimpl_Win(unsigned count) {
 double Pimpl_Win::setTimeStamp(unsigned num) {
     QueryPerformanceCounter(&end);
     meters[num - 1] = (static_cast<double>(end.QuadPart - start.QuadPart) / freq.QuadPart);
+    return meters[num - 1];
 }
 
 double Pimpl_Win::getSTimeStamp(unsigned num) {

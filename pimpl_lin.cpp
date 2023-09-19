@@ -10,6 +10,7 @@ Pimpl_Lin::Pimpl_Lin(unsigned count) {
 double Pimpl_Lin::setTimeStamp(unsigned num) {
     clock_gettime(CLOCK_REALTIME, &end);
     meters[num - 1] = (end.tv_sec - start.tv_sec) + (end.tv_nsec - start.tv_nsec) / 1000000000.0;
+    return meters[num - 1];
 }
 
 double Pimpl_Lin::getSTimeStamp(unsigned num) {

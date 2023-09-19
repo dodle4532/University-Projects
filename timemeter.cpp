@@ -1,9 +1,10 @@
 #include "timemeter.h"
+#include <memory>
 TimeMeter::TimeMeter(unsigned count) {
 #ifdef WIN32
-    impl = new Pimpl_Win(count);
+    impl = std::make_unique<Pimpl_Win>(count);
 #else
-    impl = new Pimpl_Lin(count);
+    impl = std::make_unique<Pimpl_Lin>(count);
 #endif
 }
 

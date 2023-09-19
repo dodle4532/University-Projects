@@ -2,7 +2,6 @@
 #define TIMEMETER_H
 #include <cstdint>
 #include <memory>
-#include "pimpl.h"
 #include "pimpl_lin.h"
 #include "pimpl_win.h"
 
@@ -25,8 +24,8 @@ public:
     bool isLess(unsigned num, int64_t expected);
 
 private:
-    Pimpl* impl;
-//    std::unique_ptr<Pimpl> impl;
+//    Pimpl* impl;
+    std::unique_ptr<Pimpl> impl;
 };
 
 #endif // TIMEMETER_H
