@@ -5,7 +5,6 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <sys/statfs.h>
-//#include "dir.h"
 #include <time.h>
 #include <stdbool.h>
 #include <pwd.h>
@@ -29,7 +28,6 @@ enum Type {
 };
 
 time_t getTime(char* filename) {
-//    filename = "./1.c";
     struct stat result;
     if(stat(filename, &result)==0) {
         return result.st_mtime;
@@ -166,93 +164,7 @@ enum Type getFileType(const char *fileName) {
     }
 }
 
-// long getDirSize(char* dirName) {
-//     DIR *d = opendir(dirName);
-
-//     if(d == NULL) {
-//         perror("Cannot open current working directory\n");
-//         return 1;
-//     }
-//     struct dirent *de;
-//     struct stat buf;
-//     long total_size = 0;
-//     for(de = readdir(d); de != NULL; de = readdir(d)) {
-//         int exists = stat(de->d_name, &buf);
-//         if(exists < 0) {
-//             fprintf(stderr, "Cannot read file statistics for %s, %s\n", de->d_name, dirName);
-//             return 0;
-//         } else {
-//             total_size += buf.st_size;
-//         }
-//     }
-
-//     closedir(d);
-//     return total_size;
-// }
-
-// long long getDirSize(const char *path) {
-//   long long total_size = 4096;
-//   DIR *dir;
-//   struct dirent *entry;
-//   struct stat file_stat;
-
-//   if ((dir = opendir(path)) == NULL) {
-//     perror("opendir");
-//     return -1;
-//   }
-
-//   while ((entry = readdir(dir)) != NULL) {
-//     if (strcmp(entry->d_name, ".") == 0 || strcmp(entry->d_name, "..") == 0) {
-//       continue;
-//     }
-
-//     char file_path[PATH_MAX];
-//     snprintf(file_path, sizeof(file_path), "%s/%s", path, entry->d_name);
-
-//     if (stat(file_path, &file_stat) == -1) {
-//       perror("stat");
-//       continue;
-//     }
-//     printf("QQQQQQQQQQ - %ld", file_stat.st_size);
-//     if (S_ISDIR(file_stat.st_mode)) {
-//       // Рекурсивно вызываем функцию для подкаталогов
-//       total_size += getDirSize(file_path);
-//     } else {
-//       // Добавляем размер файла к общему размеру
-//       total_size += file_stat.st_size;
-//     }
-//   }
-
-//   closedir(dir);
-//   return total_size;
-// }
-
-// long long getDirSize(const char *fileName) {
-//     struct stat fileStat;
-//     if(lstat(fileName, &fileStat) < 0) {
-//         return -1;
-//     }
-//     return fileStat.st_size;
-// }
-
 long getSize(char *fileName) {
-    // if (getFileType(fileName) == DR) {
-    //     return getDirSize(fileName);
-    // }
-    // FILE *fp = fopen(fileName, "r");
-
-    // if (fp==NULL)
-    //     return -1;
-
-    // if (fseek(fp, 0, SEEK_END) < 0) {
-    //     fclose(fp);
-    //     return -1;
-    // }
-
-    // long size = ftell(fp);
-    // fclose(fp);
-    // return size;
-
     struct stat fileStat;
     if(lstat(fileName, &fileStat) < 0) {
         return -1;
@@ -282,7 +194,6 @@ char* getGroup(char* fileName) {
         return "";
     }
     return grp->gr_name;
-    //return strcat(grp->gr_name, stoi(grp->grp_id));
 }
 
 char* getOwner(char* fileName) {
@@ -412,9 +323,7 @@ void printL(char** names, int namesCount, char* directory) {
         struct stat st;
         struct stat sta;
         lstat(directory, &sta);
-        lstat(names[i], &st);
-        //printf("QQQW - %d", sta.st_blocks);
-        //printf("%s - %d ", names[i], st.st_blocks);
+        lstat(names[i], &st);\
         fullSize += st.st_blocks;
         linkNums[i] = getNumOfLinks(names[i]);
         if (getDigitsCount(linkNums[i]) > maxLinkLen) {
@@ -456,10 +365,6 @@ void printL(char** names, int namesCount, char* directory) {
             free(link);
         }
         printf("\n");
-        // free(permissions);
-        // free(month);
-        // free(day);
-        // free(time);
     }
 }
 
