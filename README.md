@@ -1,2 +1,2 @@
-# University-Projects
-There is all my projects from studying at University
+# Works like linux utilities
+## ls: -l -a
