@@ -58,6 +58,7 @@ char* getMonth(time_t time) {
     timeinfo = localtime(&time);
     strftime(buffer,32,"%m",timeinfo);
     int month = atoi(buffer);
+    free(buffer);
     switch (month)
     {
     case 1:
@@ -375,6 +376,9 @@ void printL(char** names, int namesCount, char* directory) {
             free(link);
         }
         printf("\n");
+        free(permissions);
+        free(day);
+        free(time);
     }
 }
 
@@ -389,13 +393,6 @@ bool isFind(char** mas, int n, char* str) {
     }
     return false;
 }
-
-/*
-    \033[1;<color code>m ... \033[0m
-    Blue: 34
-    Green: 32
-    Cyan: 36
-*/
 
 int main(int argc, char** argv) {
     char c;
