@@ -136,6 +136,16 @@ int cmp(const void* s1, const void* s2)
         memmove(str2, str2 + 1, len2 - 1);
         str2[len2 - 1] = 0;
     }
+    for (int i = 0; i < len1; ++i) {
+        if (str1[i] > 64 && str1[i] < 91) {
+            str1[i] += 32;
+        }
+    }
+    for (int i = 0; i < len2; ++i) {
+        if (str2[i] > 64 && str2[i] < 91) {
+            str2[i] += 32;
+        }
+    }
      
     int res = strcmp(str1, str2);
     free(str1);
