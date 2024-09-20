@@ -10,14 +10,7 @@
 #include <pwd.h>
 #include <grp.h>
 #include <string.h>
-
-#ifndef WIN32
 #include <unistd.h>
-#endif
-
-#ifdef WIN32
-#define stat _stat
-#endif
 
 enum Type {
     UNKNOWN = 0,
