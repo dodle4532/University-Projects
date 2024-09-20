@@ -372,8 +372,12 @@ void printL(char** names, int namesCount, char* directory) {
         }
         printf("\033[1;%dm%s\033[0m", code, names[i]);
         if (link != NULL) {
-            printf(" -> %s", link);
+            char* copyLink = (char*) calloc(64, sizeof(char));
+            strcpy(copyLink, directory);
+            strcat(copyLink, link);
+            printf(" -> \033[1;%dm%s\033[0m", getColorCode(copyLink), link);
             free(link);
+            free(copyLink);
         }
         printf("\n");
         free(permissions);
@@ -418,6 +422,7 @@ int main(int argc, char** argv) {
             break;
         }
     }
+
     if (directory[0] == 0) {
         directory[0] = '.';
     }
