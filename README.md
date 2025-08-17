@@ -1,2 +1,2 @@
 # University-Projects
-There is all my projects from studying at University
+Тут приведены несколько трансяторов. Грамматику смотреть в коде
