@@ -1,2 +1,4 @@
 # University-Projects
-There is all my projects from studying at University
+## Задания по предмету "Компьютерная графика" :
+1. Нарисовать динамичную 2d сцену
+2. Нарисовать 3d куб - WASDJI вращение куба, T - вкл/выкл прозрачность, B - вкл/выкл текстур, SPACE - раздвижение граней
